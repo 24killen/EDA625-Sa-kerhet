@@ -29,27 +29,12 @@ public class RSA {
 	
 	// Implemented just for fun and it's an easy way to test if it works :)
 	public BigInteger encrypt(BigInteger plainText){
-		return exp_mod(plainText, e, N);
+		return Prime.exp_mod(plainText, e, N);
 	}
 
 	// Implemented just for fun and it's an easy way to test if it works :)
 	public BigInteger decrypt(BigInteger cipherText){
-		return exp_mod(cipherText, d, N);
+		return Prime.exp_mod(cipherText, d, N);
 	}
 	
-	// Implemented from the Project 1 instruction, Bonus section.
-	// Computes a^x mod N - Recursive form
-	private static BigInteger exp_mod(BigInteger a, BigInteger x, BigInteger N){
-		// Assume a >= 0, x >= 0 N > 1
-		if(a.compareTo(BigInteger.ZERO) == 0)
-			return BigInteger.ZERO;
-		
-		if(x.compareTo(BigInteger.ZERO) == 0)
-			return BigInteger.ONE;
-		
-		if(x.testBit(0))
-			return a.multiply(exp_mod(a, x.subtract(BigInteger.ONE), N)).mod(N);
-		else
-			return exp_mod(a, x.divide(BigInteger.valueOf(2)), N).pow(2).mod(N);
-	}
 }

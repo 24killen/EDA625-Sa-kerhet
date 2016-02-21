@@ -16,19 +16,21 @@ public class main {
 			long start = System.currentTimeMillis();
 			for(int i = 0; i < repeat; i++){
 				long temp = System.currentTimeMillis();
-				p.getPrime(size);
+				String prime = p.getPrime(size).toString();
 				System.out.println("Prime "+i+" generated after "
-						+(double)(System.currentTimeMillis()-temp)/1000 + " seconds. ("+size+" bit)");
+						+(double)(System.currentTimeMillis()-temp)/1000 + " seconds. ("+size+" bit), PRIME: "+prime);
 			}
 			long end = System.currentTimeMillis();
 			long diff = (end-start);
-			stats += "Time elapsed for "+size+" bitLength: "+ diff/1000 +" seconds\n";
+			stats += "Time elapsed for "+size+" bitLength: "+ diff/1000 +" seconds. (Avg: "+(diff/1000)/repeat+"\n";
 			size *= 2;
+			System.out.println("---------------------------------------------------------\n"+stats+"\n---------------------------------------------------------");
 		}
 		
 		System.out.println("---------------------------------------------------------");
 		System.out.println(stats);
 		System.out.println("---------------------------------------------------------");
+		System.out.println("END OF PROGRAM");
 	
 		/*
 		RSA rsa = new RSA(p.getPrime(size),p.getPrime(size));

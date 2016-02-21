@@ -4,29 +4,34 @@ public class main {
 	
 	public static void main(String[] args) {
 		
-		// Notera att storleken på size måste vara minst lika lång 
-		// som bitlängden på plaintext
-		int size = 512; 
+		int size = 256;			// Number of bits to start with.
+		int maxNbrBits = 2048; 	// Last number of bitLength to check.
+		int repeat = 1;			// Number of times to repeat.
 		
-		Prime p = new Prime(size);
-		 //Print all primes between 2 and 100
-		for(int i = 2; i < 100; i++){
-			if(p.isPrime(BigInteger.valueOf(i)))
-				System.out.print(i+", ");
+		Prime p = new Prime();
+		
+		// Prime test
+		String stats = "";
+		while(size <= maxNbrBits){
+			long start = System.currentTimeMillis();
+			for(int i = 0; i < repeat; i++){
+				long temp = System.currentTimeMillis();
+				p.getPrime(size);
+				System.out.println("Prime "+i+" generated after "
+						+(double)(System.currentTimeMillis()-temp)/1000 + " seconds. ("+size+" bit)");
+			}
+			long end = System.currentTimeMillis();
+			long diff = (end-start);
+			stats += "Time elapsed for "+size+" bitLength: "+ diff/1000 +" seconds\n";
+			size *= 2;
 		}
-//		p.isPrime(BigInteger.valueOf(25));
-//		p.isPrime(BigInteger.valueOf(28));
-		// While 25 is prime (it's not a prime, but it's still true..
-		int counter = 0;
-		while(p.isPrime(BigInteger.valueOf(25))){
-			counter++;
-		}
-		System.out.println();
-		System.out.println("25 is set as a prime "+counter +" times.");
 		
-		
+		System.out.println("---------------------------------------------------------");
+		System.out.println(stats);
+		System.out.println("---------------------------------------------------------");
+	
 		/*
-		RSA rsa = new RSA(p.getPrime(),p.getPrime());
+		RSA rsa = new RSA(p.getPrime(size),p.getPrime(size));
 		
 		// A test to see if it works! 
 		String plainText = "Detta är ett hemligt meddelande som krypteras.";
@@ -49,4 +54,5 @@ public class main {
 		System.out.println("Avkrypterad: \t"+new BigInteger(textBack.getBytes()).toString(2));
 		*/
 	}
+	
 }

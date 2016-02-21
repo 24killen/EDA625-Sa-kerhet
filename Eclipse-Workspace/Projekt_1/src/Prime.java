@@ -3,64 +3,64 @@ import java.util.Random;
 
 /** TODO */
 public class Prime {
-	private int size;
 	private Random rand;
-	
+
+	private final static BigInteger ZERO = BigInteger.ZERO;
 	private final static BigInteger ONE = BigInteger.ONE;
 	private final static BigInteger TWO = new BigInteger("2");
 	private final static BigInteger FOUR = new BigInteger("4");
 	
-	public Prime(int size){
-		this.size = size;
+	public Prime(){
 		rand = new Random();
 	}
 	
-	public BigInteger getPrime(){
-		// Denna funktion får inte användas enligt uppgiften.
-		return new BigInteger(size, 15, new Random()); 
+	// Returns a random prime number.
+	public BigInteger getPrime(int nbrOfBits){
+		BigInteger num;
+		do{
+			num = randOddBigInt(nbrOfBits);
+		}while(!isPrime(num));
+		return num;
 	}
 	
-	public boolean isPrime(BigInteger n){	//Ska i anta att (n>3 && n%2 = 1) eller ska vi kontrollera?
-		if(n.compareTo(FOUR) < 0) return true;
+	// Returns a random odd BigInteger
+	public BigInteger randOddBigInt(int nbrOfBits){
+		BigInteger num;
+		do{
+			num = new BigInteger(nbrOfBits, rand);
+		}while(!num.testBit(0)); // Check the last bit if it's even or odd. 
+		return num;
+	}
+	
+	public boolean isPrime(BigInteger n){
+		if(n.compareTo(FOUR) < 0 && n.compareTo(ZERO) > 0){
+			return true;
+		}else if( n.compareTo(ZERO) < 0){
+			return false;
+		}
+		
 		BigInteger a, s, x, n_1;
 		int r;
 		
-		s = n.subtract(ONE);
-		r = s.getLowestSetBit();
-		s = s.shiftRight(r);
-		n_1 = n.subtract(ONE);
-//		System.out.println("||"+n+" "+r+" "+s+" "+n_1+"||");
+		n_1 = n.subtract(ONE); // n-1
+		r = n_1.getLowestSetBit(); // Number of times a division of 2 is possible from n_1
+		s = n_1.shiftRight(r);		// s = n-1 / 2^r
+		
+		
 		for(int i = 0; i < 20; i++){
 			do{
 				a = new BigInteger(n.bitLength(),rand);
-//				System.out.println("Random is "+a.toString());
 			}while(!(a.compareTo(TWO) >= 0 && a.compareTo(n.subtract(TWO)) <= 0));	// while !(a >= 2 && a <= n-2)
-//			System.out.println("Out of while");
 			x = exp_mod(a, s, n);
-//			System.out.println(x.toString());
 			
-			if(x.equals(ONE)
-					|| x.equals(n.subtract(ONE))){	//if x=1 || x=n-1
-				
-				return true;
-			}
-//			System.out.println("True not returned");
+			//if x=1 || x=n-1
+			if(x.equals(ONE) || x.equals(n_1)) return true;
+			
 			for(int j = 1; j <= r - 1; j++){
-				x = exp_mod(a, s.multiply(TWO.pow(j)), n);
-				
-				//DEBUG Info
-//				System.out.println("a: "+a.intValue());
-//				System.out.println("s: "+s.intValue());
-//				System.out.println("n: "+n.intValue());
-//				System.out.println("x: "+x.intValue());
-//				System.out.println("r: "+r);
-//				System.out.println("j: "+j);
-//				System.out.println("------");
-//				
+				x = exp_mod(x, s.multiply(TWO.pow(j)), n);
 				if(x.equals(ONE)) return false;
 				if(x.equals(n_1)) return true;
 			}
-//			System.out.println("-_-_-_-_-_-_-_-_-");
 		}
 		return false;
 	}
@@ -79,5 +79,5 @@ public class Prime {
 			return a.multiply(exp_mod(a, x.subtract(BigInteger.ONE), N)).mod(N);
 		else
 			return exp_mod(a, x.shiftRight(1), N).pow(2).mod(N); //ShiftRight  = divide by 2, but faster
-	}
+	}	
 }

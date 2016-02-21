@@ -9,12 +9,13 @@ public class main {
 		int size = 512; 
 		
 		Prime p = new Prime(size);
-		// Print all primes between 2 and 100
+		 //Print all primes between 2 and 100
 		for(int i = 2; i < 100; i++){
 			if(p.isPrime(BigInteger.valueOf(i)))
 				System.out.print(i+", ");
 		}
-		
+		//p.isPrime(BigInteger.valueOf(5));
+		//p.isPrime(BigInteger.valueOf(25));
 		// While 25 is prime (it's not a prime, but it's still true..
 		int counter = 0;
 		while(p.isPrime(BigInteger.valueOf(25))){

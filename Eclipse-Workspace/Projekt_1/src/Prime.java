@@ -29,33 +29,38 @@ public class Prime {
 		r = s.getLowestSetBit();
 		s = s.shiftRight(r);
 		n_1 = n.subtract(ONE);
-		
+		//System.out.println("||"+n+" "+r+" "+s+" "+n_1+"||");
 		for(int i = 0; i < 20; i++){
 			do{
 				a = new BigInteger(n.bitLength(),rand);
+				//System.out.println("Random is "+a.toString());
 			}while(!(a.compareTo(TWO) >= 0 && a.compareTo(n.subtract(TWO)) <= 0));	// while !(a >= 2 && a <= n-2)
-			
+			//System.out.println("Out of while");
 			x = exp_mod(a, s, n);
+			//System.out.println(x.toString());
+			
 			if(x.equals(ONE)
 					|| x.equals(n.subtract(ONE))){	//if x=1 || x=n-1
+				
 				return true;
 			}
-			
-			for(int j = 1; j < r - 1; j++){
+			//System.out.println("True not returned");
+			for(int j = 1; j <= r - 1; j++){
 				x = exp_mod(a, s.multiply(TWO.pow(j)), n);
-				/* 
+				
 				//DEBUG Info
-				System.out.println("a: "+a.intValue());
-				System.out.println("s: "+s.intValue());
-				System.out.println("n: "+n.intValue());
-				System.out.println("x: "+x.intValue());
-				System.out.println("r: "+r);
-				System.out.println("j: "+j);
-				System.out.println("------");
-				*/
+//				System.out.println("a: "+a.intValue());
+//				System.out.println("s: "+s.intValue());
+//				System.out.println("n: "+n.intValue());
+//				System.out.println("x: "+x.intValue());
+//				System.out.println("r: "+r);
+//				System.out.println("j: "+j);
+//				System.out.println("------");
+//				
 				if(x.equals(ONE)) return false;
 				if(x.equals(n_1)) return true;
 			}
+			//System.out.println("-_-_-_-_-_-_-_-_-");
 		}
 		return false;
 	}

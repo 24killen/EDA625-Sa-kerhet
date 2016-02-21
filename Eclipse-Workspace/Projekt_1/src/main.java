@@ -6,7 +6,7 @@ public class main {
 		
 		int size = 256;			// Number of bits to start with.
 		int maxNbrBits = 2048; 	// Last number of bitLength to check.
-		int repeat = 1;			// Number of times to repeat.
+		int repeat = 6;			// Number of times to repeat.
 		
 		Prime p = new Prime();
 		
@@ -22,7 +22,7 @@ public class main {
 			}
 			long end = System.currentTimeMillis();
 			long diff = (end-start);
-			stats += "Time elapsed for "+size+" bitLength: "+ diff/1000 +" seconds. (Avg: "+(diff/1000)/repeat+"\n";
+			stats += "Time elapsed for "+size+" bitLength: "+ diff/1000 +" seconds. (Avg: "+(diff/1000)/repeat+" seconds)\n";
 			size *= 2;
 			System.out.println("---------------------------------------------------------\n"+stats+"\n---------------------------------------------------------");
 		}

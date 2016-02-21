@@ -29,22 +29,22 @@ public class Prime {
 		r = s.getLowestSetBit();
 		s = s.shiftRight(r);
 		n_1 = n.subtract(ONE);
-		//System.out.println("||"+n+" "+r+" "+s+" "+n_1+"||");
+//		System.out.println("||"+n+" "+r+" "+s+" "+n_1+"||");
 		for(int i = 0; i < 20; i++){
 			do{
 				a = new BigInteger(n.bitLength(),rand);
-				//System.out.println("Random is "+a.toString());
+//				System.out.println("Random is "+a.toString());
 			}while(!(a.compareTo(TWO) >= 0 && a.compareTo(n.subtract(TWO)) <= 0));	// while !(a >= 2 && a <= n-2)
-			//System.out.println("Out of while");
+//			System.out.println("Out of while");
 			x = exp_mod(a, s, n);
-			//System.out.println(x.toString());
+//			System.out.println(x.toString());
 			
 			if(x.equals(ONE)
 					|| x.equals(n.subtract(ONE))){	//if x=1 || x=n-1
 				
 				return true;
 			}
-			//System.out.println("True not returned");
+//			System.out.println("True not returned");
 			for(int j = 1; j <= r - 1; j++){
 				x = exp_mod(a, s.multiply(TWO.pow(j)), n);
 				
@@ -60,7 +60,7 @@ public class Prime {
 				if(x.equals(ONE)) return false;
 				if(x.equals(n_1)) return true;
 			}
-			//System.out.println("-_-_-_-_-_-_-_-_-");
+//			System.out.println("-_-_-_-_-_-_-_-_-");
 		}
 		return false;
 	}

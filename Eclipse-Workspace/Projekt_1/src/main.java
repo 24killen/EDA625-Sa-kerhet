@@ -14,8 +14,8 @@ public class main {
 			if(p.isPrime(BigInteger.valueOf(i)))
 				System.out.print(i+", ");
 		}
-		//p.isPrime(BigInteger.valueOf(5));
-		//p.isPrime(BigInteger.valueOf(25));
+//		p.isPrime(BigInteger.valueOf(25));
+//		p.isPrime(BigInteger.valueOf(28));
 		// While 25 is prime (it's not a prime, but it's still true..
 		int counter = 0;
 		while(p.isPrime(BigInteger.valueOf(25))){

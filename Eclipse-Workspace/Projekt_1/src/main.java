@@ -4,13 +4,13 @@ public class main {
 	
 	public static void main(String[] args) {
 		
-		int size = 256;			// Number of bits to start with.
+		int size = 1024;			// Number of bits to start with.
 		int maxNbrBits = 2048; 	// Last number of bitLength to check.
 		int repeat = 6;			// Number of times to repeat.
 		
-		Prime p = new Prime();
-		
-		// Prime test
+		Prime p = new Prime();	
+
+//		 Prime test
 		String stats = "";
 		while(size <= maxNbrBits){
 			long start = System.currentTimeMillis();

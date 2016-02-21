@@ -58,9 +58,11 @@ public class Prime {
 			
 			for(int j = 1; j <= r - 1; j++){
 				x = exp_mod(x, s.multiply(TWO.pow(j)), n);
+				//x = exp_mod(x,TWO,n);
 				if(x.equals(ONE)) return false;
 				if(x.equals(n_1)) return true;
 			}
+			
 		}
 		return false;
 	}

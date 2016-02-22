@@ -25,14 +25,13 @@ public class RSA {
 				|| e.gcd(phi).compareTo(BigInteger.valueOf(1)) != 0);	//gcd(e,phi) = 1
 		
 		d = e.modInverse(phi);											// d = e^-1 mod(p-1)(q-1)
+		//d = Prime.inverseMod(e, phi);
 	}
 	
-	// Implemented just for fun and it's an easy way to test if it works :)
 	public BigInteger encrypt(BigInteger plainText){
 		return Prime.exp_mod(plainText, e, N);
 	}
 
-	// Implemented just for fun and it's an easy way to test if it works :)
 	public BigInteger decrypt(BigInteger cipherText){
 		return Prime.exp_mod(cipherText, d, N);
 	}

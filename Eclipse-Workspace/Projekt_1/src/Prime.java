@@ -11,7 +11,7 @@ public class Prime {
 	private final static BigInteger FOUR = new BigInteger("4");
 	
 	public Prime(){
-		rand = new Random();
+			rand = new Random();
 	}
 	
 	// Returns a random prime number.
@@ -57,8 +57,8 @@ public class Prime {
 			if(x.equals(ONE) || x.equals(n_1)) return true;
 			
 			for(int j = 1; j <= r - 1; j++){
-				x = exp_mod(x, s.multiply(TWO.pow(j)), n);
-				//x = exp_mod(x,TWO,n);
+				//x = exp_mod(x, s.multiply(TWO.pow(j)), n);
+				x = exp_mod(x,TWO,n);
 				if(x.equals(ONE)) return false;
 				if(x.equals(n_1)) return true;
 			}
@@ -71,15 +71,47 @@ public class Prime {
 	// Computes a^x mod N - Recursive form
 	public static BigInteger exp_mod(BigInteger a, BigInteger x, BigInteger N){
 		// Assume a >= 0, x >= 0 N > 1
-		if(a.compareTo(BigInteger.ZERO) == 0)
-			return BigInteger.ZERO;
+		if(a.compareTo(ZERO) == 0)
+			return ZERO;
 		
-		if(x.compareTo(BigInteger.ZERO) == 0)
-			return BigInteger.ONE;
+		if(x.compareTo(ZERO) == 0)
+			return ONE;
 		
 		if(x.testBit(0))
-			return a.multiply(exp_mod(a, x.subtract(BigInteger.ONE), N)).mod(N);
+			return a.multiply(exp_mod(a, x.subtract(ONE), N)).mod(N);
 		else
 			return exp_mod(a, x.shiftRight(1), N).pow(2).mod(N); //ShiftRight  = divide by 2, but faster
 	}	
+	
+	/**
+	 * 
+	 * @param a 
+	 * @param m
+	 * @return
+	 */
+	public static BigInteger inverseMod(BigInteger a, BigInteger m){
+		BigInteger d, d1, d2, v, v1, v2;
+		d1 = m;
+		d2 = a;
+		v1 = ZERO;
+		v2 = ONE;
+		
+		while(!d2.equals(ZERO)){
+			BigInteger q, t2, t3;
+			
+			q = d1.divide(d2);
+			t2 = v1.subtract(q.multiply(v2));
+			t3 = d1.subtract(q.multiply(d2));
+			v1 = v2; d1 = d2;
+			v2 = t2; d2 = t3;
+		}
+		v = v1;
+		d = d1;
+		
+		if(d.equals(ONE)){
+			return v;
+		}
+		
+		return null;
+	}
 }

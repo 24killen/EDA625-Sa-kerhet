@@ -4,12 +4,14 @@ public class main {
 	
 	public static void main(String[] args) {
 		
-		int size = 1024;			// Number of bits to start with.
+		int size = 512;			// Number of bits to start with.
 		int maxNbrBits = 2048; 	// Last number of bitLength to check.
-		int repeat = 6;			// Number of times to repeat.
+		int repeat = 100;			// Number of times to repeat.
 		
 		Prime p = new Prime();	
-
+		
+	//	System.out.println(Prime.inverseMod(BigInteger.valueOf(12),BigInteger.valueOf(23)).intValue());
+		
 //		 Prime test
 		String stats = "";
 		while(size <= maxNbrBits){
@@ -26,14 +28,12 @@ public class main {
 			size *= 2;
 			System.out.println("---------------------------------------------------------\n"+stats+"\n---------------------------------------------------------");
 		}
-		
-		System.out.println("---------------------------------------------------------");
-		System.out.println(stats);
-		System.out.println("---------------------------------------------------------");
 		System.out.println("END OF PROGRAM");
 	
-		/*
+/*
 		RSA rsa = new RSA(p.getPrime(size),p.getPrime(size));
+
+		//RSA rsa = new RSA(BigInteger.probablePrime(size, new Random()),BigInteger.probablePrime(size, new Random()));
 		
 		// A test to see if it works! 
 		String plainText = "Detta är ett hemligt meddelande som krypteras.";
@@ -44,7 +44,7 @@ public class main {
 		System.out.println("Klartext: \t"+plainText);
 		System.out.println("Krypterad: \t"+cypher.toByteArray());
 		System.out.println("Avkrypterad: \t"+textBack);
-		System.out.println();
+		System.out.println();/*
 		System.out.println("BigInteger-baserad utskrift");
 		System.out.println("Klartext: \t"+new BigInteger(plainText.getBytes()));
 		System.out.println("Krypterad: \t"+cypher);

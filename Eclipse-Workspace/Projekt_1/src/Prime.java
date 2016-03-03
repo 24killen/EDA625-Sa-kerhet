@@ -85,9 +85,9 @@ public class Prime {
 	
 	/**
 	 * 
-	 * @param a 
-	 * @param m
-	 * @return
+	 * @param BigInteger a 
+	 * @param BigInteger m
+	 * @return BigInteger v
 	 */
 	public static BigInteger inverseMod(BigInteger a, BigInteger m){
 		BigInteger d, d1, d2, v, v1, v2;

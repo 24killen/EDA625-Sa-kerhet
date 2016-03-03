@@ -3,16 +3,14 @@ import java.math.BigInteger;
 public class main {
 	
 	public static void main(String[] args) {
-		
+		long progStart = System.currentTimeMillis();
 		int size = 512;			// Number of bits to start with.
 		int maxNbrBits = 2048; 	// Last number of bitLength to check.
 		int repeat = 100;			// Number of times to repeat.
-		
 		Prime p = new Prime();	
 		
-	//	System.out.println(Prime.inverseMod(BigInteger.valueOf(12),BigInteger.valueOf(23)).intValue());
-		
 //		 Prime test
+		/*	
 		String stats = "";
 		while(size <= maxNbrBits){
 			long start = System.currentTimeMillis();
@@ -28,33 +26,71 @@ public class main {
 			size *= 2;
 			System.out.println("---------------------------------------------------------\n"+stats+"\n---------------------------------------------------------");
 		}
-		System.out.println("END OF PROGRAM");
-	
-/*
-		RSA rsa = new RSA(p.getPrime(size),p.getPrime(size));
+		System.out.println("END OF TEST");
+		*/
 
-		//RSA rsa = new RSA(BigInteger.probablePrime(size, new Random()),BigInteger.probablePrime(size, new Random()));
+		System.out.println("PROGRAM START");
+		long start, prime_1, prime_2, encrypt, decrypt;
+		p = new Prime();
 		
+		System.out.println("Genererar "+size+" bitars primtal p...");
+		start = System.currentTimeMillis();
+		BigInteger prime_p = p.getPrime(size);
+		prime_1 = System.currentTimeMillis()-start;
+		
+		start = System.currentTimeMillis();
+		System.out.println("Genererar "+size+" bitars primtal q...");
+		BigInteger prime_q = p.getPrime(size);
+		prime_2 = System.currentTimeMillis()-start;
+		
+		System.out.println();
+		
+		RSA rsa = new RSA(prime_p,prime_q);
+		
+		System.out.println("Använder dessa primtal för RSA:");
+		System.out.println("p = " + prime_p);
+		System.out.println("q = " + prime_q);
+		System.out.println();
+
 		// A test to see if it works! 
 		String plainText = "Detta är ett hemligt meddelande som krypteras.";
+		
+		// Encrypt
+		start = System.currentTimeMillis();
 		BigInteger cypher = rsa.encrypt(new BigInteger(plainText.getBytes()));
+		encrypt = System.currentTimeMillis()-start;
+		
+		// Decrypt
+		start = System.currentTimeMillis();
 		String textBack = new String(rsa.decrypt(cypher).toByteArray());
+		decrypt = System.currentTimeMillis()-start;
 		
 		System.out.println("Sträng-baserad utskrift");
 		System.out.println("Klartext: \t"+plainText);
 		System.out.println("Krypterad: \t"+cypher.toByteArray());
 		System.out.println("Avkrypterad: \t"+textBack);
-		System.out.println();/*
+		System.out.println();
+		
 		System.out.println("BigInteger-baserad utskrift");
 		System.out.println("Klartext: \t"+new BigInteger(plainText.getBytes()));
 		System.out.println("Krypterad: \t"+cypher);
 		System.out.println("Avkrypterad: \t"+new BigInteger(textBack.getBytes()));
 		System.out.println();
+		
 		System.out.println("Bit-baserad utskrift");
 		System.out.println("Klartext: \t"+new BigInteger(plainText.getBytes()).toString(2));
 		System.out.println("Krypterad: \t"+cypher.toString(2));
 		System.out.println("Avkrypterad: \t"+new BigInteger(textBack.getBytes()).toString(2));
-		*/
+		System.out.println();
+
+		System.out.println("Generering av primtalet p tog "+prime_1+" ms.");
+		System.out.println("Generering av primtalet q tog "+prime_2+" ms.");
+		System.out.println("Kryptering av meddelandet tog "+encrypt+" ms.");
+		System.out.println("Avkryptering av meddelandet tog "+decrypt+" ms.");
+		System.out.println("Hela körningen av programmet tog "+(System.currentTimeMillis()-progStart)/1000+" s.");
+		System.out.println();
+		
+		System.out.println("END OF PROGRAM");
 	}
 	
 }

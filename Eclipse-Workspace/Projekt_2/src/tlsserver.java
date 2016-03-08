@@ -18,7 +18,7 @@ public class tlsserver {
  // First we need to load a keystore
        char[] passphrase = "campslr07".toCharArray();        
        ks = KeyStore.getInstance("JKS"); 
-       ks.load(new FileInputStream("../../Security_keys/keyStore.jks"), passphrase); 
+       ks.load(new FileInputStream("serverKeyStore.jks"), passphrase); 
 // Initialize a KeyManagerFactory with the KeyStore
        kmf = KeyManagerFactory.getInstance("SunX509"); 
        kmf.init(ks, passphrase); 

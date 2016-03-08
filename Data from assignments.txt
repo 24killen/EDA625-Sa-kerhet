@@ -1,0 +1,25 @@
+------------Assignment 2-------------
+
+Serienumber: e1:f8:3d:69:b7:59:f5:83
+Issuer & subject: C=SE, ST=Scania, L=Malmo, O=LU, OU=Education, CN=Simon & Arturs CA/emailAddress=ca@awesomeness.com
+Signature Algorithm: sha1WithRSAEncryption
+Hash: 69519f87
+Exponent: 65537
+X509v3 extensions: 
+	X509v3 Subject Key Identifier: 
+	E1:F1:91:36:92:1C:5D:0C:3E:18:00:90:7C:D2:25:32:00:D1:44:D8
+	
+	X509v3 Authority Key Identifier:
+		keyid:E1:F1:91:36:92:1C:5D:0C:3E:18:00:90:7C:D2:25:32:00:D1:44:D8
+    	DirName:/C=SE/ST=Scania/L=Malmo/O=LU/OU=Education/CN=Simon & Arturs CA/emailAddress=ca@awesomeness.com
+        serial:E1:F8:3D:69:B7:59:F5:83
+	
+	X509v3 Basic Constraint:
+		CA:TRUE
+
+------------Assignment 3-------------
+1. In rootCA.pem under Authority and subject Key Identifier as keyid
+3. Nej det behövs inte
+
+
+

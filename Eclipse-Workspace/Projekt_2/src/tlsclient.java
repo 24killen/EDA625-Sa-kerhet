@@ -10,9 +10,9 @@ private static final String HOST = "localhost";
   private static final int PORT = 8043; 
   public static void main(String[] args) throws Exception { 
     // TrustStore
-    char[] passphrase_ts = "changeit".toCharArray(); 
+    char[] passphrase_ts = "campslr07".toCharArray(); 
     KeyStore ts = KeyStore.getInstance("JKS"); 
-    ts.load(new FileInputStream("truststore.jks"), passphrase_ts); 
+    ts.load(new FileInputStream("../../Security_keys/truststore.jks"), passphrase_ts); 
     TrustManagerFactory tmf = TrustManagerFactory.getInstance("SunX509"); 
     tmf.init(ts); 
     // Keystore  ????      

@@ -1,0 +1,58 @@
+Certificate:
+    Data:
+        Version: 1 (0x0)
+        Serial Number: 3 (0x3)
+    Signature Algorithm: sha1WithRSAEncryption
+        Issuer: C=SE, ST=Scania, L=Malmo, O=LU, OU=Education, CN=Simon & Artur/emailAddress=ca@awesomeness.com
+        Validity
+            Not Before: Mar  8 19:50:09 2016 GMT
+            Not After : Mar  8 19:50:09 2017 GMT
+        Subject: C=SE, ST=Scania, L=Malmo, O=LU, OU=Education, CN=Simon Lerpard
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (1024 bit)
+                Modulus:
+                    00:a3:ea:ac:04:cd:85:b7:39:cc:e8:e0:f8:90:ac:
+                    69:9a:c5:0e:d8:78:19:1d:a7:fc:d1:79:2f:9f:d1:
+                    9d:57:ad:31:01:62:69:a9:20:6a:00:b0:55:f8:1d:
+                    2a:5a:70:3a:b8:df:38:11:b8:f0:62:25:ca:60:73:
+                    f7:4e:ec:5c:2e:18:5c:6a:35:ed:bf:67:c6:ed:1b:
+                    cb:21:01:90:a6:e2:ee:6f:0b:25:8a:61:ea:d7:f4:
+                    a9:6b:88:d1:2b:11:f5:9b:13:ab:b7:96:1f:95:5c:
+                    85:ac:24:a1:22:06:c0:bc:cd:f4:64:20:15:9f:d1:
+                    93:74:01:66:a1:75:00:3d:2b
+                Exponent: 65537 (0x10001)
+    Signature Algorithm: sha1WithRSAEncryption
+         7e:e4:72:0a:5b:e7:19:7f:11:17:5a:cf:d4:df:f0:84:3e:85:
+         70:0c:2a:4d:68:a5:5c:0d:99:f3:2f:10:d1:e0:6c:8b:ed:40:
+         b1:3f:d1:2b:37:e5:02:8d:54:c4:6f:32:bd:c8:7a:0f:81:a8:
+         71:80:76:00:dd:16:a4:75:dd:2d:a2:66:42:fd:5e:0a:2b:29:
+         57:00:2b:1d:af:6b:0a:cf:72:8a:96:27:60:af:f5:20:02:b9:
+         08:7a:ab:d3:65:36:82:95:24:fe:76:57:15:e8:fb:10:b9:cb:
+         e8:1b:b1:93:7f:14:17:50:0c:e7:6a:dd:2d:11:8b:0c:b2:e9:
+         63:5c:8a:88:2a:d1:aa:5c:03:a8:ef:c8:8e:ef:ed:00:9e:52:
+         8e:90:2e:c8:71:03:2a:e5:0d:ad:7d:48:ae:ef:47:50:7b:71:
+         73:11:e6:cd:8e:42:43:6f:dc:b6:8c:90:95:8b:9e:e4:c4:b2:
+         72:87:b3:d6:19:4c:66:03:bd:c7:9a:ee:1b:75:ee:18:7c:0d:
+         5e:db:b9:f8:bd:9f:a8:01:a2:9a:53:fc:05:d4:d7:f2:b8:1c:
+         d6:c0:fd:1b:8b:1a:ef:41:22:10:5a:4f:c4:06:ea:16:86:d7:
+         70:96:f9:7a:aa:c2:41:f0:0b:da:a7:b2:1f:73:c8:bc:25:b8:
+         c5:0a:af:87
+-----BEGIN CERTIFICATE-----
+MIIC4jCCAcoCAQMwDQYJKoZIhvcNAQEFBQAwgYoxCzAJBgNVBAYTAlNFMQ8wDQYD
+VQQIDAZTY2FuaWExDjAMBgNVBAcMBU1hbG1vMQswCQYDVQQKDAJMVTESMBAGA1UE
+CwwJRWR1Y2F0aW9uMRYwFAYDVQQDDA1TaW1vbiAmIEFydHVyMSEwHwYJKoZIhvcN
+AQkBFhJjYUBhd2Vzb21lbmVzcy5jb20wHhcNMTYwMzA4MTk1MDA5WhcNMTcwMzA4
+MTk1MDA5WjBnMQswCQYDVQQGEwJTRTEPMA0GA1UECBMGU2NhbmlhMQ4wDAYDVQQH
+EwVNYWxtbzELMAkGA1UEChMCTFUxEjAQBgNVBAsTCUVkdWNhdGlvbjEWMBQGA1UE
+AxMNU2ltb24gTGVycGFyZDCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAo+qs
+BM2FtznM6OD4kKxpmsUO2HgZHaf80Xkvn9GdV60xAWJpqSBqALBV+B0qWnA6uN84
+EbjwYiXKYHP3TuxcLhhcajXtv2fG7RvLIQGQpuLubwslimHq1/Spa4jRKxH1mxOr
+t5YflVyFrCShIgbAvM30ZCAVn9GTdAFmoXUAPSsCAwEAATANBgkqhkiG9w0BAQUF
+AAOCAQEAfuRyClvnGX8RF1rP1N/whD6FcAwqTWilXA2Z8y8Q0eBsi+1AsT/RKzfl
+Ao1UxG8yvch6D4GocYB2AN0WpHXdLaJmQv1eCispVwArHa9rCs9yipYnYK/1IAK5
+CHqr02U2gpUk/nZXFej7ELnL6Buxk38UF1AM52rdLRGLDLLpY1yKiCrRqlwDqO/I
+ju/tAJ5SjpAuyHEDKuUNrX1Iru9HUHtxcxHmzY5CQ2/ctoyQlYue5MSycoez1hlM
+ZgO9x5ruG3XuGHwNXtu5+L2fqAGimlP8BdTX8rgc1sD9G4sa70EiEFpPxAbqFobX
+cJb5eqrCQfAL2qeyH3PIvCW4xQqvhw==
+-----END CERTIFICATE-----

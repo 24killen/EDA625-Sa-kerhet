@@ -6,7 +6,7 @@ import java.security.*;
 import javax.net.ssl.*; 
 
 public class tlsclient { 
-private static final String HOST = "192.168.1.42"; 
+private static final String HOST = "localhost"; 
   private static final int PORT = 8043; 
   public static void main(String[] args) throws Exception { 
     // TrustStore

@@ -9,8 +9,8 @@ public class tlsserver {
     private static final int PORT = 8043; 
     public static void main (String[] args)  throws Exception { 
        //set necessary truststore properties - using JKS
-       //System.setProperty("javax.net.ssl.trustStore","truststore.jks");
-       //System.setProperty("javax.net.ssl.trustStorePassword","changeit"); 
+       System.setProperty("javax.net.ssl.trustStore","truststore.jks");
+       System.setProperty("javax.net.ssl.trustStorePassword","campslr07"); 
        // set up key manager to do server authentication
        SSLContext context;
        KeyManagerFactory kmf;
@@ -34,6 +34,9 @@ public class tlsserver {
        
 // alterternative: needed to set SSL/TLS behaviour
        SSLSocket  s  =  (SSLSocket)ss.accept();
+       s.setNeedClientAuth(true);
+       String pickedCiphers[] ={"TLS_RSA_WITH_AES_128_CBC_SHA"};
+       s.setEnabledCipherSuites(pickedCiphers);
 
        
 // Get the input stream. En/Decryption happens transparently.

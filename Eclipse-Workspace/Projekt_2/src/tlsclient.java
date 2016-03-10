@@ -3,6 +3,7 @@
 import java.io.*; 
 import java.net.*; 
 import java.security.*; 
+
 import javax.net.ssl.*; 
 
 public class tlsclient { 
@@ -15,11 +16,21 @@ private static final String HOST = "localhost";
     ts.load(new FileInputStream("truststore.jks"), passphrase_ts); 
     TrustManagerFactory tmf = TrustManagerFactory.getInstance("SunX509"); 
     tmf.init(ts); 
-    // Keystore  ????      
+    
+    // Keystore  ????
+    KeyManagerFactory kmf;
+    KeyStore ks;
+// First we need to load a keystore
+    char[] passphrase_ks = "campslr07".toCharArray();        
+    ks = KeyStore.getInstance("JKS"); 
+    ks.load(new FileInputStream("clientKeyStore.jks"), passphrase_ks); 
+//Initialize a KeyManagerFactory with the KeyStore
+    kmf = KeyManagerFactory.getInstance("SunX509");
+    kmf.init(ks, passphrase_ks);
     
     SSLContext context = SSLContext.getInstance("TLS"); 
     TrustManager[] trustManagers = tmf.getTrustManagers();
-    KeyManager[] keyManagers   = null; // kmf.getKeyManagers();
+    KeyManager[] keyManagers = kmf.getKeyManagers();
     
     context.init(keyManagers, trustManagers, new SecureRandom()); 
     SSLSocketFactory sf = context.getSocketFactory(); 
